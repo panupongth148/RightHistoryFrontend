@@ -1,7 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import Login from '../views/Login.vue'
+import Search from '../views/Search.vue'
+import DetailList from "../views/DetailsRightList.vue"
+import Register from "../views/Signup.vue"
+import AddAccountClaimant from "../views/AddAccountClaimant.vue"
+import NewRight from "../views/NewRight.vue"
+import RightDetail from "../views/DetailRight"
+import PdfViewer from "../components/PdfViewer"
 Vue.use(VueRouter)
 
 const routes = [
@@ -11,12 +18,46 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/login',
+    name: 'login',
+    meta: { guess: true },
+    component: Login
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: Search
+  },
+  {
+    path: '/detaillist/:id',
+    name: 'detaillist',
+    component: DetailList
+  },
+  {
+    path: '/register',
+    name: 'register',
+    meta: { guess: true },
+    component: Register
+  },
+  {
+    path: '/addacc',
+    name: 'addacc',
+    component: AddAccountClaimant
+  },
+  {
+    path: '/newright',
+    name: 'newright',
+    component: NewRight
+  },
+  {
+    path: '/detailright/:claimid/:docid',
+    name: 'detailright',
+    component: RightDetail
+  },
+  {
+    path: '/pdfviewer',
+    name: 'pdfviewer',
+    component: PdfViewer
   }
 ]
 
@@ -25,5 +66,23 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  const isLoggedIn = !!localStorage.getItem('token_right')
+  console.log(isLoggedIn)
+  if (to.meta.login && !isLoggedIn) {
+    console.log
+    alert('You are a guess user. Please login to use this function.')
+    next({ path: '/' })
+  }
+
+  if (to.meta.guess && isLoggedIn) {
+    alert("You've already logged in.")
+    next({ path: '/'})
+  }
+
+  next()
+})
+
 
 export default router
