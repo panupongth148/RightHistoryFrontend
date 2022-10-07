@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row box-signup mt-5">
       <div class="col mb-5">
-        <p class="mt-5 detail-header"><b>เพิ่มข้อมูลการร้องสิทธิ</b></p>
+        <p class="mt-5 detail-header"><b>เพิ่มข้อมูลประวัติการขอรับสิทธิ</b></p>
         <div class="row my-3">
           <div class="col-2"></div>
 
           <div class="col-8">
-            <p class="mt-5 detail">เลือกผู้ร้องสิทธิ</p>
+            <p class="mt-5 detail">เลือกผู้ขอรับสิทธิ</p>
             <b-form-input
               class="detail"
               list="my-list-id"
@@ -32,15 +32,20 @@
               <b-form-group
                 class="detail"
                 id="input-group-2"
-                label="ชื่อเรื่อง"
+                label="เรื่องขอรับสิทธิ"
                 label-for="input-2"
               >
-                <b-form-input
-                  id="input-2"
-                  v-model="form.title"
-                  placeholder="ชื่อเรื่อง"
-                  required
-                ></b-form-input>
+              <b-form-input
+              class="detail"
+              list="my-list-title"
+              v-model="form.title"
+            ></b-form-input>
+
+            <datalist id="my-list-title">
+              <option v-for="user in this.titleIntitial" :key="user">
+                {{user}}
+              </option>
+            </datalist>
               </b-form-group>
             </div>
 
@@ -64,20 +69,26 @@
                       :state="Boolean(file1)"
                       placeholder="โปรดอัปโหลดไฟล์และกดปุ่มเพิ่มทีละไฟล์"
                       drop-placeholder="ลากไฟล์ที่นี่"
-                    ></b-form-file
+                    ></b-form-file>
+                    <b-button
+                      type="button"
+                      @click="addFile"
+                      variant="success"
+                      class="mt-2 detail"
+                      >เพิ่มไฟล์</b-button
+                    ></b-form-group
                   >
-                  <b-button type="button" @click="addFile" variant="success" class="mt-2 detail"
-                    >เพิ่มไฟล์</b-button
-                  ></b-form-group>
 
                   <!-- <div class="mt-3">Select file: {{ file1 ? file1.name : "" }}</div> -->
                 </div>
-                <div class="col-3">
-                  
-                </div>
+                <div class="col-3"></div>
               </div>
               <div class="mt-3 detail">ไฟล์ที่ถูกเลือก</div>
-              <div class="mt-1 detail" v-for="(file, index) in files" :key="index">
+              <div
+                class="mt-1 detail"
+                v-for="(file, index) in files"
+                :key="index"
+              >
                 {{ index + 1 + ". " }}{{ file.name }}
                 <b-button
                   type="button"
@@ -92,7 +103,9 @@
             <div class="col-2"></div>
           </div>
 
-          <b-button type="submit" variant="primary" class="mr-3 mt-3 pb-2">เพิ่มการร้องสิทธิ</b-button>
+          <b-button type="submit" variant="primary" class="mr-3 mt-3 pb-2"
+            >เพิ่มการร้องสิทธิ</b-button
+          >
         </b-form>
       </div>
     </div>
@@ -118,6 +131,7 @@ export default {
       file1: null,
       files: [],
       claimant: [],
+      titleIntitial: ["บำเหน็จความชอบ", "ค่าทดแทนและการช่วยเหลือ", "บำเหน็จความชอบ ค่าทดแทนและการช่วยเหลือ"],
       show: true,
     };
   },
@@ -125,14 +139,24 @@ export default {
     this.getAllCliamant();
   },
   methods: {
+    makeToast(variant = null, text) {
+      this.$bvToast.toast(text, {
+        title: `ข้อความแจ้งเตือน`,
+        variant: variant,
+        solid: true,
+      });
+    },
+    goHomePage() {
+      this.$router.push({ path: `/search` });
+    },
     addFile() {
       this.files.push(this.file1);
     },
     async onSubmit(event) {
       event.preventDefault();
-      console.log("submit");
-      console.log(this.selectedClaimant);
-      console.log(this.file1);
+      // console.log("submit");
+      // console.log(this.selectedClaimant);
+      // console.log(this.file1);
       const id = this.claimant.filter(
         (val) => val.Firstname + " " + val.Lastname === this.selectedClaimant
       );
@@ -153,10 +177,12 @@ export default {
       axios
         .post(`/righthistory/create`, formData)
         .then((res) => {
-          alert("ลงทะเบียนสำเร็จ");
+          // alert("ลงทะเบียนสำเร็จ");
           this.files = [];
           this.file1 = null;
-          this.$router.push({ path: `/search` });
+          this.makeToast("success", "เพิ่มข้อมูลการขอรับสิทธิสำเร็จ");
+          setTimeout(this.goHomePage, 2000);
+          
         })
         .catch((err) => {
           alert(err.response.data.details.message);

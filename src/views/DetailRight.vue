@@ -2,7 +2,7 @@
   <div class="container mt-5">
     <p class="header1">{{ rightDoc.title }}</p>
 
-    <p class="mt-5 detail-header">Selected Your File</p>
+    <p class="mt-5 detail-header">โปรดเลือกเอกสารของคุณ</p>
     <b-input list="my-list-id" v-model="selectedDoc" @change="changeDoc"></b-input>
     <datalist id="my-list-id">
       <option v-for="file in this.rightDoc.files" :key="file.name">
@@ -14,7 +14,6 @@
         <p class="detail-header">{{docShow.file_name}}</p>
         <figure class="image">
           <img
-            style="height: 320px; width: 60%"
             :src="imagePath(docShow.file_path)"
             alt="Placeholder image"
           />

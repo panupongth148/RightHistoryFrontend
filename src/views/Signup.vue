@@ -188,8 +188,8 @@ export default {
       console.log(data);
       await axios.post("/register", data).then((res) => {
         // this.showDismissibleAlert = true;
-        alert("register sucess");
-        router.push({ path: "/login" });
+        this.makeToast("success");
+        setTimeout(this.goHomePage, 2000);
       });
     },
     onReset(event) {
@@ -204,6 +204,16 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
+    },
+    makeToast(variant = null) {
+      this.$bvToast.toast("ลงทะเบียนบัญชีผู้ใช้สำเร็จ", {
+        title: `ข้อความแจ้งเตือน`,
+        variant: variant,
+        solid: true,
+      });
+    },
+    goHomePage() {
+      this.$router.push({ path: "/login" });
     },
   },
 };

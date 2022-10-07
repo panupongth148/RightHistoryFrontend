@@ -3,7 +3,7 @@
     <div>
       <b-navbar toggleable="lg" type="dark" variant="info">
         <b-navbar-brand href="#"
-          ><router-link to="/">Home</router-link>
+          ><router-link to="/">หน้าแรก</router-link>
         </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -12,17 +12,17 @@
           <b-navbar-nav>
             <b-nav-item href="#"
               ><router-link to="/search" style="color: white"
-                >search</router-link
+                >ค้นหาผู้ขอรับสิทธิ</router-link
               ></b-nav-item
             >
             <b-nav-item href="#"
               ><router-link to="/addacc" style="color: white"
-                >New Claimant</router-link
+                >ลงทะเบียนผู้ขอรับสิทธิ</router-link
               ></b-nav-item
             >
             <b-nav-item href="#"
               ><router-link to="/newright" style="color: white"
-                >New right</router-link
+                >เพิ่มประวัติขอรับสิทธิ</router-link
               ></b-nav-item
             >
           </b-navbar-nav>
@@ -32,12 +32,12 @@
           <b-navbar-nav class="ml-auto" v-if="!user">
             <b-nav-item
               ><router-link to="/login" style="color: white"
-                >login</router-link
+                >เข้าสู่ระบบ</router-link
               ></b-nav-item
             >
             <b-nav-item
               ><router-link to="/register" style="color: white"
-                >register</router-link
+                >ลงทะเบียน</router-link
               ></b-nav-item
             >
           </b-navbar-nav>
@@ -47,7 +47,7 @@
               <template #button-content>
                 <em>{{ user.Firstname }} {{ user.Lastname }}</em>
               </template>
-              <b-dropdown-item @click="logout()">Sign Out</b-dropdown-item>
+              <b-dropdown-item @click="logout()">ออกจากระบบ</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>

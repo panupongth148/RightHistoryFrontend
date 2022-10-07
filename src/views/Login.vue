@@ -94,6 +94,18 @@ export default {
   },
 
   methods: {
+    makeToast(variant = null, text) {
+      console.log("toast")
+      this.$bvToast.toast(text, {
+        title: `ข้อความแจ้งเตือน`,
+        variant: variant,
+        autoHideDelay: 2000,
+        solid: true,
+      });
+    },
+    goHomePage() {
+      this.$router.push({ path: `/` });
+    },
     async onSubmit(event) {
       event.preventDefault();
       console.log("submit");
@@ -106,11 +118,20 @@ export default {
         const token = res.data.message.token;
         localStorage.setItem("token_right", token);
         console.log(res.data);
+        
+        this.makeToast("success", "เข้าสู่ระบบสำเร็จ");
         this.$emit("auth-change");
-        this.$router.push({ path: "/" });
+          setTimeout(this.goHomePage, 2000);
         // this.$router.push({ path: "/" }).then(() => {
         //   window.location.reload();
         // });
+      }).catch((err)=>{
+        console.log(err)
+        alert("ชื่อบัญชีผู้ใช้หรือรหัสผ่านไม่ถูกต้อง โปรดลองอีกครั้ง")
+        // this.makeToast("success", "เข้าสู่ระบบสำเร็จ");
+        
+        
+          
       });
     },
   },

@@ -2,11 +2,15 @@
   <div class="container mt-5">
     <div class="row box-signup">
       <div class="col-lg-5 col-md-12">
-        <img width="100%" style="padding-top:40%" src="../../public/Image/SignupAcc.jpg">
+        <img
+          width="100%"
+          style="padding-top: 40%"
+          src="../../public/Image/SignupAcc.jpg"
+        />
       </div>
       <div class="col-lg-7 col-md-12 py-5 pl-3">
         <div>
-          <h3 class="detail-header"><b>ลงทะเบียนผู้ร้องสิทธิรายใหม่</b></h3>
+          <h3 class="detail-header"><b>ลงทะเบียนผู้ขอรับสิทธิรายใหม่</b></h3>
         </div>
         <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="pt-3">
           <div class="row my-3">
@@ -157,7 +161,6 @@ export default {
   methods: {
     async onSubmit(event) {
       event.preventDefault();
-      alert(JSON.stringify(this.form));
 
       const formData = new FormData();
       formData.append("EmployeeId", this.employeeId);
@@ -173,8 +176,11 @@ export default {
         Job: this.form.job,
         TimesOfRequest: this.form.timeOfRequest,
       };
-      console.log(data);
-      await axios.post("/accountclaimant", data);
+      // console.log(data);
+      await axios.post("/accountclaimant", data).then((val) => {
+        this.makeToast("success");
+        setTimeout(this.goHomePage, 2000);
+      });
     },
     onReset(event) {
       event.preventDefault();
@@ -188,6 +194,16 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
+    },
+    makeToast(variant = null) {
+      this.$bvToast.toast("ลงทะเบียนผู้ขอรับสิทธิสำเร็จ", {
+        title: `ข้อความแจ้งเตือน`,
+        variant: variant,
+        solid: true,
+      });
+    },
+    goHomePage() {
+      this.$router.push({ path: "/" });
     },
   },
 };
@@ -217,7 +233,7 @@ export default {
 .box-signup:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-.image{
+.image {
   display: flex;
   align-items: center;
   justify-content: center;
