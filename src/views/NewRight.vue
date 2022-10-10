@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row box-signup mt-5">
       <div class="col mb-5">
-        <p class="mt-5 detail-header"><b>เพิ่มข้อมูลประวัติการขอรับสิทธิ</b></p>
+        <p class="mt-5 detail-header"><b>เพิ่มข้อมูลประวัติการขอรับสิทธิ์</b></p>
         <div class="row my-3">
           <div class="col-2"></div>
 
           <div class="col-8">
-            <p class="mt-5 detail">เลือกผู้ขอรับสิทธิ</p>
+            <p class="mt-5 detail">เลือกผู้ขอรับสิทธิ์</p>
             <b-form-input
               class="detail"
               list="my-list-id"
@@ -32,7 +32,7 @@
               <b-form-group
                 class="detail"
                 id="input-group-2"
-                label="เรื่องขอรับสิทธิ"
+                label="เรื่องขอรับสิทธิ์"
                 label-for="input-2"
               >
               <b-form-input
@@ -104,7 +104,7 @@
           </div>
 
           <b-button type="submit" variant="primary" class="mr-3 mt-3 pb-2"
-            >เพิ่มการร้องสิทธิ</b-button
+            >บันทึก</b-button
           >
         </b-form>
       </div>
