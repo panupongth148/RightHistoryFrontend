@@ -6,7 +6,7 @@
    
     <b-form-input></b-form-input>
   </b-input-group> -->
-  <h2 class="mt-5 detail-header">ค้นหาผู้ร้องสิทธิ</h2>
+  <h2 class="mt-5 detail-header">ค้นหาผู้ขอรับสิทธิ์</h2>
     <div class="row mt-5">
       <div class="col">
         <b-form-input v-model="textSearch" @input="searchName" placeholder="โปรดใส่ชื่อ"></b-form-input>
