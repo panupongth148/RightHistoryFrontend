@@ -12,17 +12,17 @@
           <b-navbar-nav>
             <b-nav-item href="#"
               ><router-link to="/search" style="color: white"
-                >ค้นหาผู้ขอรับสิทธิ</router-link
+                >ค้นหาผู้ขอรับสิทธิ์</router-link
               ></b-nav-item
             >
             <b-nav-item href="#"
               ><router-link to="/addacc" style="color: white"
-                >ลงทะเบียนผู้ขอรับสิทธิ</router-link
+                >ลงทะเบียนผู้ขอรับสิทธิ์</router-link
               ></b-nav-item
             >
             <b-nav-item href="#"
               ><router-link to="/newright" style="color: white"
-                >เพิ่มประวัติขอรับสิทธิ</router-link
+                >เพิ่มประวัติขอรับสิทธิ์</router-link
               ></b-nav-item
             >
           </b-navbar-nav>
