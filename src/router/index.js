@@ -72,7 +72,7 @@ const routes = [
     component: StatusRight,
     meta: {
       auth: true
-  }
+    }
   }
 ]
 
@@ -86,16 +86,15 @@ router.beforeEach((to, from, next) => {
   const isLoggedIn = !!localStorage.getItem('token_right')
   console.log(isLoggedIn)
   if (to.meta.login && !isLoggedIn) {
-    console.log
+    console.log("not login")
     alert('You are a guess user. Please login to use this function.')
-    next({ path: '/' })
+    next({ path: '/login' })
   }
 
   if (to.meta.guess && isLoggedIn) {
     alert("You've already logged in.")
-    next({ path: '/'})
+    next({ path: '/' })
   }
-
   next()
 })
 
