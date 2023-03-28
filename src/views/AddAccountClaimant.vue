@@ -10,7 +10,7 @@
       </div>
       <div class="col-lg-7 col-md-12 py-5 pl-3">
         <div>
-          <h3 class="detail-header"><b>ลงทะเบียนผู้ขอรับสิทธิรายใหม่</b></h3>
+          <h3 class="tit"><b>ลงทะเบียนผู้ขอรับสิทธิรายใหม่</b></h3>
         </div>
         <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="pt-3">
           <div class="row my-3">
@@ -174,6 +174,7 @@ export default {
         Lastname: this.form.lastName,
         Age: this.form.age,
         Job: this.form.job,
+        Status: "waiting",
         TimesOfRequest: this.form.timeOfRequest,
       };
       // console.log(data);
@@ -213,9 +214,10 @@ export default {
   font-family: "Bebas Neue", cursive;
   font-size: 45px;
 }
-.detail-header {
+.tit {
   font-family: "Kanit", sans-serif;
   font-size: 28px;
+  text-align: center;
 }
 .detail {
   font-family: "Kanit", sans-serif;

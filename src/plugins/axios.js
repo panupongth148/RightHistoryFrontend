@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    // baseURL: 'http://localhost:3000/',
-    baseURL: 'https://right-history.herokuapp.com/',
+    baseURL: 'https://right-history-backend-y4ni.vercel.app/',
     
 })
 instance.interceptors.request.use(

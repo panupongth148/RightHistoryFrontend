@@ -9,6 +9,8 @@ import AddAccountClaimant from "../views/AddAccountClaimant.vue"
 import NewRight from "../views/NewRight.vue"
 import RightDetail from "../views/DetailRight"
 import PdfViewer from "../components/PdfViewer"
+import RightRequest from "../views//RightRequest"
+import StatusRight from '../views/StatusRight.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -58,6 +60,19 @@ const routes = [
     path: '/pdfviewer',
     name: 'pdfviewer',
     component: PdfViewer
+  },
+  {
+    path: '/rightrequest',
+    name: 'rightrequest',
+    component: RightRequest
+  },
+  {
+    path: '/right/status/:id',
+    name: 'statusright',
+    component: StatusRight,
+    meta: {
+      auth: true
+  }
   }
 ]
 

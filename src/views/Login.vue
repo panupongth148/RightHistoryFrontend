@@ -1,42 +1,41 @@
 <template>
   <div class="container">
-    <div class="row box-signup" style="margin-top: 20%">
+    <div class="row mt-3">
       <div class="col col-lg-5 col-md-12">
-        <img width="100%"  src="../../public/Image/Login.jpg">
+        <img width="100%" src="../../public/Image/Login.jpg" style="padding-top: 30%"/>
       </div>
-      <div class="col col-lg-7 col-md-12 py-5 pl-3">
+      <div class="col col-lg-7 col-md-12" style="padding-top: 10%;">
         <div>
-          <h3 class="detail-header"><b>เข้าสู่ระบบ</b></h3>
+          <p class="detail-header" style="font-size: 35px">เข้าสู่ระบบ</p>
         </div>
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="pt-3">
+        <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="pt-5 mb-5">
           <div class="row">
-            <div class="col-3"></div>
+            <!-- <div class="col-3"></div> -->
 
-            <div class="col-6">
+            <div class="col">
               <b-form-group
                 class="detail"
                 id="input-group-1"
-                label="อีเมล"
+                label="ชื่อบัญชีผู้ใช้/อีเมล"
                 label-for="input-1"
               >
                 <b-form-input
                   class="detail"
                   id="input-1"
                   v-model="form.email"
-                  type="อีเมล"
-                  placeholder="Enter email"
+                  placeholder="ชื่อผู้ใช้ หรือ อีเมล"
                   required
                 ></b-form-input>
               </b-form-group>
             </div>
 
-            <div class="col-3"></div>
+            <!-- <div class="col-3"></div> -->
           </div>
 
           <div class="row my-3">
-            <div class="col-3"></div>
+            <!-- <div class="col-3"></div> -->
 
-            <div class="col-6">
+            <div class="col">
               <b-form-group
                 class="detail"
                 id="input-group-2"
@@ -55,17 +54,19 @@
               </b-form-group>
             </div>
 
-            <div class="col-3"></div>
+            <!-- <div class="col-3"></div> -->
           </div>
 
-          <b-button type="submit" variant="primary" class="mr-3"
+          <b-button type="submit" variant="success" class="mr-3"
             >เข้าสู่ระบบ</b-button
           >
-          <router-link to="/register" ><b-button type="button" class="ml-3"
-            variant="primary">สมัครบัญชีผู้ใช้</b-button
-          ></router-link>
-          
+          <router-link to="/register"
+            ><b-button type="button" class="ml-3" variant="primary"
+              >สมัครบัญชีผู้ใช้</b-button
+            ></router-link
+          >
         </b-form>
+      
       </div>
     </div>
   </div>
@@ -73,12 +74,13 @@
 
 <script>
 import axios from "@/plugins/axios";
+import router from "@/router";
 export default {
   data() {
     return {
       form: {
-        email: "barry888@gmail.com",
-        password: "963852",
+        email: "",
+        password: "",
         food: null,
         checked: [],
       },
@@ -95,7 +97,7 @@ export default {
 
   methods: {
     makeToast(variant = null, text) {
-      console.log("toast")
+      console.log("toast");
       this.$bvToast.toast(text, {
         title: `ข้อความแจ้งเตือน`,
         variant: variant,
@@ -113,26 +115,26 @@ export default {
         email: this.form.email,
         password: this.form.password,
       };
-      await axios.post("/login", data).then((res) => {
-        // this.showDismissibleAlert = true;
-        const token = res.data.message.token;
-        localStorage.setItem("token_right", token);
-        console.log(res.data);
-        
-        this.makeToast("success", "เข้าสู่ระบบสำเร็จ");
-        this.$emit("auth-change");
+      await axios
+        .post("/login", data)
+        .then((res) => {
+          // this.showDismissibleAlert = true;
+          const token = res.data.message.token;
+          localStorage.setItem("token_right", token);
+          console.log(res.data);
+
+          this.makeToast("success", "เข้าสู่ระบบสำเร็จ");
+          this.$emit("auth-change");
           setTimeout(this.goHomePage, 2000);
-        // this.$router.push({ path: "/" }).then(() => {
-        //   window.location.reload();
-        // });
-      }).catch((err)=>{
-        console.log(err)
-        alert("ชื่อบัญชีผู้ใช้หรือรหัสผ่านไม่ถูกต้อง โปรดลองอีกครั้ง")
-        // this.makeToast("success", "เข้าสู่ระบบสำเร็จ");
-        
-        
-          
-      });
+          router.push({ path: '/' })
+          const url = new URL('/', window.location.origin)
+          window.location.href = url.toString()
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("ชื่อบัญชีผู้ใช้หรือรหัสผ่านไม่ถูกต้อง โปรดลองอีกครั้ง");
+          // this.makeToast("success", "เข้าสู่ระบบสำเร็จ");
+        });
     },
   },
 };
@@ -145,7 +147,6 @@ export default {
 }
 .detail-header {
   font-family: "Kanit", sans-serif;
-  font-size: 20px;
 }
 .detail {
   font-family: "Kanit", sans-serif;

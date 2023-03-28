@@ -8,8 +8,14 @@
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-        <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav>
+        <b-collapse id="nav-collapse" is-nav >
+          <b-navbar-nav v-if="(user && user.type != 'emp') || user == null">
+            <b-nav-item href="#"
+              ><router-link to="/rightrequest" style="color: white"
+                >สถานะคำร้องขอ</router-link
+              ></b-nav-item
+            ></b-navbar-nav>
+          <b-navbar-nav v-if="user && user.type == 'emp'">
             <b-nav-item href="#"
               ><router-link to="/search" style="color: white"
                 >ค้นหาผู้ขอรับสิทธิ</router-link
@@ -86,6 +92,7 @@ export default {
         .get("/user/me")
         .then((res) => {
           this.user = res.data;
+          // console.log(this.user)
         })
         .then((val) => {});
     },

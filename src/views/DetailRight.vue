@@ -78,7 +78,8 @@ export default {
     imagePath(file_path) {
       if (file_path) {
         console.log(file_path);
-        return "https://right-history.herokuapp.com/" + file_path;
+        return "https://right-history-backend-y4ni.vercel.app/" + file_path;
+        // return "http://localhost:3000/" + file_path;
       } else {
         return "https://bulma.io/images/placeholders/640x360.png";
       }

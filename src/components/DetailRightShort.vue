@@ -8,6 +8,9 @@
       class="detail-header"
       v-bind:title="right[0].title"
     >
+    <b-card-text>
+      
+    </b-card-text>
 
     <router-link :to="{ name: 'detailright', params: { claimid: cliamantId, docid: index} }"><b-button  variant="primary">ดูเอกสารการเรียกร้องสิทธิ</b-button></router-link>
     <!-- <b-button type="button" @click="deleteById()" variant="warning" class="ml-3">Delete</b-button> -->

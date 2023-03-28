@@ -1,8 +1,15 @@
 <template>
   <div class="container">
     <div class="row box-signup mt-5">
+      
       <div class="col mb-5">
-        <p class="mt-5 detail-header"><b>เพิ่มข้อมูลประวัติการขอรับสิทธิ</b></p>
+        <div class="row" style="text-align: center;">
+          <div class="col">
+            <p class="mt-5 tit"><b>เพิ่มข้อมูลประวัติการขอรับสิทธิ</b></p>
+          </div>
+          
+        </div>
+
         <div class="row my-3">
           <div class="col-2"></div>
 
@@ -160,11 +167,14 @@ export default {
       const id = this.claimant.filter(
         (val) => val.Firstname + " " + val.Lastname === this.selectedClaimant
       );
+      const today = new Date();
       console.log(id[0]._id);
       console.log(this.file1.name);
       const formData = new FormData();
       formData.append("ClaimantId", id[0]._id);
       formData.append("Title", this.form.title);
+      formData.append("Status", "waiting")
+      formData.append("Date", today)
       this.files.forEach((val) => {
         formData.append("files", val);
       });
@@ -254,9 +264,10 @@ export default {
   font-family: "Bebas Neue", cursive;
   font-size: 35px;
 }
-.detail-header {
+.tit {
   font-family: "Kanit", sans-serif;
-  font-size: 30px;
+  font-size: 26px;
+  text-align: center;
 }
 .detail {
   font-family: "Kanit", sans-serif;
