@@ -457,6 +457,8 @@ export default {
 }
 .tit {
   font-family: "Kanit", sans-serif;
+  font-size: 28px;
+  text-align: center;
 }
 .detail {
   font-family: "Kanit", sans-serif;
