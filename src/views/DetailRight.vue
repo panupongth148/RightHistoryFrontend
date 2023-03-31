@@ -2,7 +2,7 @@
   <div class="container mt-5">
     <p class="header1">{{ rightDoc.title }}</p>
 
-    <p class="mt-5 detail-header">โปรดเลือกเอกสารของคุณ</p>
+    <p class="mt-5 detail-header">โปรดเลือกเอกสาร</p>
     <b-input list="my-list-id" v-model="selectedDoc" @change="changeDoc"></b-input>
     <datalist id="my-list-id">
       <option v-for="file in this.rightDoc.files" :key="file.name">
