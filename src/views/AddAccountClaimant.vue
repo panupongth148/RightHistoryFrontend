@@ -10,7 +10,7 @@
       </div>
       <div class="col-lg-7 col-md-12 py-5 pl-3">
         <div>
-          <h3 class="tit"><b>ลงทะเบียนผู้ขอรับสิทธิรายใหม่</b></h3>
+          <h3 class="tit"><b>ลงทะเบียนผู้ขอรับสิทธิ์รายใหม่</b></h3>
         </div>
         <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="pt-3">
           <div class="row my-3">
@@ -197,7 +197,7 @@ export default {
       });
     },
     makeToast(variant = null) {
-      this.$bvToast.toast("ลงทะเบียนผู้ขอรับสิทธิสำเร็จ", {
+      this.$bvToast.toast("ลงทะเบียนผู้ขอรับสิทธิ์สำเร็จ", {
         title: `ข้อความแจ้งเตือน`,
         variant: variant,
         solid: true,
