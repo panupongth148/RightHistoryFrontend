@@ -13,7 +13,7 @@
           </div>
           <div class="col col-lg-7 col-md-12 py-5 pl-3">
             <p class="detail-header" style="font-size: 28px">
-              <b>สมัครบัญชีผู้ใช้ประเภทพนักงาน</b>
+              <b>สมัครบัญชีผู้ใช้ประเภทเจ้าหน้าที่</b>
             </p>
             <b-form
               @submit="onSubmit"
