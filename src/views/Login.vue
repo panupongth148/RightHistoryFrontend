@@ -6,7 +6,7 @@
       </div>
       <div class="col col-lg-7 col-md-12" style="padding-top: 10%;">
         <div>
-          <p class="tit" style="font-size: 35px">เข้าสู่ระบบ</p>
+          <p class="tit" style="font-size: 35px">เข้าสู่ระบบCC</p>
         </div>
         <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="pt-5 mb-5">
           <div class="row">
