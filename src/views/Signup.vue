@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <b-tabs content-class="mt-3" justified class="mt-4">
-      <b-tab title="พนักงาน" active
+      <b-tab title="เจ้าหน้าที่" active
         ><div class="row mt-5">
           <div class="col-lg-5 col-md-12">
             <img
@@ -28,14 +28,14 @@
                   <b-form-group
                     class="detail"
                     id="input-group-2"
-                    label="รหัสประจำตัวพนักงาน"
+                    label="รหัสประจำตัวเจ้าหน้าที่"
                     label-for="input-2"
                   >
                     <b-form-input
                       class="detail"
                       id="input-2"
                       v-model="form.employeeId"
-                      placeholder="รหัสประจำตัวพนักงาน"
+                      placeholder="รหัสประจำตัวเจ้าหน้าที่"
                       required
                     ></b-form-input>
                   </b-form-group>
