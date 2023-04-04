@@ -17,9 +17,9 @@
             <b-icon icon="arrow-repeat" font-scale="8"></b-icon>
           </div>
           <div class="col-lg-6 col-md-12">
-            <h5 class="detail-header"><b>ตรวจสอบสถานะคำร้อง</b></h5>
+            <h5 class="detail-header"><b>ตรวจสอบสถานะคำร้องขอรับสิทธิ์</b></h5>
             <p class="detail pt-2">
-              ประชาชนทั่วไปสามารถตรวจสอบสถานะคำร้องที่ทำการยื่นคำร้องขอรับสิทธิไปพิจารณา
+              ประชาชนทั่วไปสามารถตรวจสอบสถานะคำร้องที่ทำการยื่นคำร้องขอรับสิทธิ์ไปพิจารณา
             </p>
             <router-link to="/addacc" style="color: white"
               ><b-button variant="info">ตรวจสอบ</b-button></router-link
@@ -39,9 +39,9 @@
             <b-icon icon="book" font-scale="8"></b-icon>
           </div>
           <div class="col-lg-6 col-md-12">
-            <h5 class="detail-header"><b>ลงทะเบียนผู้ร้องสิทธิ</b></h5>
+            <h5 class="detail-header"><b>ลงทะเบียนผู้ขอรับสิทธิ์</b></h5>
             <p class="detail pt-2">
-              ลงทะเบียนผู้เรียกร้องสิทธิสำหรับผู้ร้องสิทธิที่ไม่เคยลงทะเบียนกับ
+              ลงทะเบียนผู้ขอรับสิทธิ์สำหรับผู้ขอรับสิทธิ์ที่ไม่เคยลงทะเบียนกับ
               website นี้
             </p>
             <router-link to="/addacc" style="color: white"
@@ -54,10 +54,10 @@
             <b-icon icon="info-circle" font-scale="8"></b-icon>
           </div>
           <div class="col-lg-6 col-md-12">
-            <h5 class="detail-header"><b>เพิ่มข้อมูลการเรียกร้องสิทธิ</b></h5>
+            <h5 class="detail-header"><b>เพิ่มข้อมูลการขอรับสิทธิ์</b></h5>
             <p class="detail pt-2">
-              เพิ่มหัวข้อและเอกสารการเรียกร้องสิทธิ
-              ของผู้มาร้องสิทธิภายในสำนักงานปลัดนายกรัฐมนตรี
+              เพิ่มหัวข้อและเอกสารการขอรับสิทธิ์
+              ของผู้มาขอรับสิทธิ์ภายในสำนักงานปลัดนายกรัฐมนตรี
             </p>
             <router-link to="/newright" style="color: white"
               ><b-button variant="info">เพิ่มเอกสาร</b-button></router-link
@@ -69,10 +69,10 @@
             <b-icon icon="search" font-scale="8"></b-icon>
           </div>
           <div class="col-lg-6 col-md-12">
-            <h5 class="detail-header"><b>ค้นหาประวัติการเรียกร้องสิทธิ</b></h5>
+            <h5 class="detail-header"><b>ค้นหาประวัติการขอรับสิทธิ์</b></h5>
             <p class="detail pt-2">
-              ค้นหาประวัติการเรียกร้องสิทธิในสำนักปลัดนายกรัฐมนตรี
-              ที่ได้ทำการเพิ่มข้อมูลการเรียกร้องสิทธิ
+              ค้นหาประวัติการขอรับสิทธิ์ในสำนักปลัดนายกรัฐมนตรี
+              ที่ได้ทำการเพิ่มข้อมูลการขอรับสิทธิ์
             </p>
             <router-link to="/search" style="color: white"
               ><b-button variant="info">ค้นหา</b-button></router-link
@@ -94,7 +94,7 @@
           <div class="col-lg-6 col-md-12">
             <h5 class="detail-header"><b>ตรวจสอบสถานะคำร้อง</b></h5>
             <p class="detail pt-2">
-              ประชาชนทั่วไปสามารถตรวจสอบสถานะคำร้องที่ทำการยื่นคำร้องขอรับสิทธิไปพิจารณา
+              ประชาชนทั่วไปสามารถตรวจสอบสถานะคำร้องขอรับสิทธิ์ที่ทำการยื่นคำร้องขอรับสิทธิ์ไปพิจารณา
             </p>
             <router-link to="/addacc" style="color: white"
               ><b-button variant="info">ตรวจสอบ</b-button></router-link
