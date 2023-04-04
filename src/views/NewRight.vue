@@ -5,7 +5,7 @@
       <div class="col mb-5">
         <div class="row" style="text-align: center;">
           <div class="col">
-            <p class="mt-5 tit"><b>เพิ่มข้อมูลประวัติการขอรับสิทธิ</b></p>
+            <p class="mt-5 tit"><b>เพิ่มข้อมูลประวัติการขอรับสิทธิ์</b></p>
           </div>
           
         </div>
@@ -14,7 +14,7 @@
           <div class="col-2"></div>
 
           <div class="col-8">
-            <p class="mt-5 detail">เลือกผู้ขอรับสิทธิ</p>
+            <p class="mt-5 detail">เลือกผู้ขอรับสิทธิ์</p>
             <b-form-input
               class="detail"
               list="my-list-id"
@@ -39,7 +39,7 @@
               <b-form-group
                 class="detail"
                 id="input-group-2"
-                label="เรื่องขอรับสิทธิ"
+                label="เรื่องขอรับสิทธิ์"
                 label-for="input-2"
               >
               <b-form-input
@@ -111,7 +111,7 @@
           </div>
 
           <b-button type="submit" variant="primary" class="mr-3 mt-3 pb-2"
-            >เพิ่มการร้องสิทธิ</b-button
+            >เพิ่มการขอรับสิทธิ์</b-button
           >
         </b-form>
       </div>
@@ -190,7 +190,7 @@ export default {
           // alert("ลงทะเบียนสำเร็จ");
           this.files = [];
           this.file1 = null;
-          this.makeToast("success", "เพิ่มข้อมูลการขอรับสิทธิสำเร็จ");
+          this.makeToast("success", "เพิ่มข้อมูลการขอรับสิทธิ์สำเร็จ");
           setTimeout(this.goHomePage, 2000);
           
         })
