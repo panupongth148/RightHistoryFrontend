@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row mt-5">
       <div class="col">
-        <p class="header1">ข้อมูลการขอรับสิทธิ</p>
+        <p class="header1">ข้อมูลการขอรับสิทธิ์</p>
         <hr />
         <div class="row mt-5">
           <div class="col">
             <div class="header-tab">
-              <p>คำร้องการขอรับสิทธิ</p>
+              <p>คำร้องการขอรับสิทธิ์</p>
             </div>
             <div class="mt-4">
               <div v-for="(doc, index) in docData" :key="index">
@@ -22,7 +22,7 @@
                   </div>
                   <div class="mt-2">
                     <p class="content-in-card">
-                      สถานะคำร้อง : {{ doc.Document[0].state | request }}
+                      สถานะคำร้องขอรับสิทธิ์ : {{ doc.Document[0].state | request }}
                     </p>
                   </div>
 
@@ -33,7 +33,7 @@
                         params: { claimid: accData._id, docid: index},
                       }"
                       ><p class="content-in-card-link">
-                        ดูรายละเอียดคำร้องขอ
+                        ดูรายละเอียดคำร้องขอขอรับสิทธิ์
                       </p></router-link
                     >
                   </div>
@@ -43,7 +43,7 @@
           </div>
           <div class="col">
             <div class="header-tab">
-              <p>ข้อมูลผู้ขอรับสิทธิ</p>
+              <p>ข้อมูลผู้ขอรับสิทธิ์</p>
             </div>
             <div class="mt-4">
               <p class="detail-header">
