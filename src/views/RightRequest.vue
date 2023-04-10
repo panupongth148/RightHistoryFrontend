@@ -6,7 +6,7 @@
    
     <b-form-input></b-form-input>
   </b-input-group> -->
-  <h2 class="mt-5 detail-header">ค้นหาการขอรับสิทธิ์</h2>
+  <h2 class="mt-5 detail-header">ตรวจสอบสถานะคำร้องขอรับสิทธิ์</h2>
     <div class="row mt-5">
       <div class="col">
         <b-form-input v-model="textSearch" placeholder="โปรดใส่รหัสประจำตัวประชาชน" maxlength = "13"></b-form-input >
