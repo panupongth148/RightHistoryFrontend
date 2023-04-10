@@ -7,7 +7,7 @@
     </b-card-text>
     <b-card-text> </b-card-text>
     
-    <router-link :to="{name: 'detaillist', params: {id: claimant._id}}">ดูสิทธิที่เรียกร้องทั้งหมด</router-link> 
+    <router-link :to="{name: 'detaillist', params: {id: claimant._id}}">ดูคำขอร้องสิทธิ์ที่เรียกร้องทั้งหมด</router-link> 
   </b-card>
   </div>
 </template>
